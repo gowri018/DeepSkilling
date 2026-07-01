@@ -19,19 +19,18 @@
     <bean id="bookService"
           class="com.library.service.BookService">
 
-        <!-- Constructor Injection -->
         <constructor-arg value="Central Library"/>
 
-        <!-- Setter Injection -->
         <property name="bookRepository"
                   ref="bookRepository"/>
 
     </bean>
 
-    <!-- Logging Aspect -->
+    <!-- Aspect Bean -->
     <bean id="loggingAspect"
           class="com.library.aspect.LoggingAspect"/>
 
+    <!-- Enable AOP -->
     <aop:aspectj-autoproxy/>
 
 </beans>
