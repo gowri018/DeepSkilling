@@ -1,2 +1,3 @@
-2026/07/02-10:26:24.254 5498 Creating DB C:\Users\Lenovo\OneDrive\Desktop\TechTrain\DeepSkiling\Week 2\Spring Data JPA\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB since it was missing.
-2026/07/02-10:26:24.271 5498 Reusing MANIFEST C:\Users\Lenovo\OneDrive\Desktop\TechTrain\DeepSkiling\Week 2\Spring Data JPA\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/07/09-16:02:00.241 5a94 Reusing MANIFEST C:\Users\Lenovo\OneDrive\Desktop\TechTrain\DeepSkiling\Week 2\Spring Data JPA\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/07/09-16:02:00.242 5a94 Recovering log #3
+2026/07/09-16:02:00.244 5a94 Reusing old log C:\Users\Lenovo\OneDrive\Desktop\TechTrain\DeepSkiling\Week 2\Spring Data JPA\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/000003.log 
