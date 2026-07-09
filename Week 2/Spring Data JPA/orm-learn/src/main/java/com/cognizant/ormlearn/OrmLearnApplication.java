@@ -37,11 +37,13 @@ public class OrmLearnApplication {
 
         //testUpdateCountry();
 
-        testDeleteCountry();
+        //testDeleteCountry();
 
         //testSearchCountry();
         
         //testFindCountryByCode();
+        
+        testGetCountriesStartingWith();
 
     }
 
@@ -138,7 +140,7 @@ public class OrmLearnApplication {
 
         LOGGER.info("Start");
 
-        LOGGER.debug("Countries={}", countryService.searchCountry("land"));
+        LOGGER.debug("Countries={}", countryService.searchCountry("ou"));
 
         LOGGER.info("End");
 
@@ -160,6 +162,19 @@ public class OrmLearnApplication {
             LOGGER.error(e.getMessage());
 
         }
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testGetCountriesStartingWith() {
+
+        LOGGER.info("Start");
+
+        List<Country> countries =
+                countryService.getCountriesStartingWith("Z");
+
+        LOGGER.debug("Countries={}", countries);
 
         LOGGER.info("End");
 

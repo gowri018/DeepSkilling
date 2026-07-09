@@ -57,11 +57,19 @@ public class CountryService {
         repository.deleteById(code);
 
     }
+    
 
     @Transactional
     public List<Country> searchCountry(String text) {
 
-        return repository.findByNameContainingIgnoreCase(text);
+    	return repository.findByNameContainingOrderByNameAsc(text);
+    }
+    
+    
+    @Transactional
+    public List<Country> getCountriesStartingWith(String alphabet) {
+
+        return repository.findByNameStartingWith(alphabet);
 
     }
     
