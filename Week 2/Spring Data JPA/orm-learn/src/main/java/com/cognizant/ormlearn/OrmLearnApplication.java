@@ -1,6 +1,7 @@
 package com.cognizant.ormlearn;
 
 import java.util.List;
+import com.cognizant.ormlearn.service.exception.CountryNotFoundException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,13 +33,15 @@ public class OrmLearnApplication {
 
         //testGetCountry();
 
-        //testAddCountry();
+        testAddCountry();
 
         //testUpdateCountry();
 
         //testDeleteCountry();
 
-        testSearchCountry();
+        //testSearchCountry();
+        
+        //testFindCountryByCode();
 
     }
 
@@ -72,13 +75,23 @@ public class OrmLearnApplication {
 
         Country country = new Country();
 
-        country.setCode("ZZ");
+        country.setCode("NP");
 
-        country.setName("ChatGPT Land");
+        country.setName("Nepal");
 
         countryService.addCountry(country);
 
-        LOGGER.info("Country Added");
+        try {
+
+            Country result = countryService.findCountryByCode("NP");
+
+            LOGGER.debug("Country={}", result);
+
+        } catch (CountryNotFoundException e) {
+
+            LOGGER.error(e.getMessage());
+
+        }
 
         LOGGER.info("End");
 
@@ -119,6 +132,27 @@ public class OrmLearnApplication {
         LOGGER.info("Start");
 
         LOGGER.debug("Countries={}", countryService.searchCountry("land"));
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testFindCountryByCode() {
+
+        LOGGER.info("Start");
+
+        try {
+
+            Country country =
+                    countryService.findCountryByCode("IN");
+
+            LOGGER.debug("Country={}", country);
+
+        } catch (CountryNotFoundException e) {
+
+            LOGGER.error(e.getMessage());
+
+        }
 
         LOGGER.info("End");
 

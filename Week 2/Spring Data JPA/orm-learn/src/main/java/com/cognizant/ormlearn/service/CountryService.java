@@ -1,6 +1,8 @@
 package com.cognizant.ormlearn.service;
 
 import java.util.List;
+import java.util.Optional;
+import com.cognizant.ormlearn.service.exception.CountryNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +57,26 @@ public class CountryService {
     public List<Country> searchCountry(String text) {
 
         return repository.findByNameContainingIgnoreCase(text);
+
+    }
+    
+    @Transactional
+    public Country findCountryByCode(String countryCode)
+            throws CountryNotFoundException {
+
+        Optional<Country> result =
+                repository.findById(countryCode);
+
+        if (!result.isPresent()) {
+
+            throw new CountryNotFoundException(
+                    "Country with code "
+                            + countryCode
+                            + " not found");
+
+        }
+
+        return result.get();
 
     }
 
