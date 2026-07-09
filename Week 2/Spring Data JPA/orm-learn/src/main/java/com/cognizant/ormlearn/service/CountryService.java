@@ -40,7 +40,12 @@ public class CountryService {
     }
 
     @Transactional
-    public void updateCountry(Country country) {
+    public void updateCountry(String code, String name)
+            throws CountryNotFoundException {
+
+        Country country = findCountryByCode(code);
+
+        country.setName(name);
 
         repository.save(country);
 

@@ -33,11 +33,11 @@ public class OrmLearnApplication {
 
         //testGetCountry();
 
-        testAddCountry();
+        //testAddCountry();
 
         //testUpdateCountry();
 
-        //testDeleteCountry();
+        testDeleteCountry();
 
         //testSearchCountry();
         
@@ -101,15 +101,22 @@ public class OrmLearnApplication {
 
         LOGGER.info("Start");
 
-        Country country = new Country();
+        try {
 
-        country.setCode("ZZ");
+            countryService.updateCountry(
+                    "NP",
+                    "Updated CTS Country");
 
-        country.setName("OpenAI Country");
+            Country country =
+                    countryService.findCountryByCode("NP");
 
-        countryService.updateCountry(country);
+            LOGGER.debug("Country={}", country);
 
-        LOGGER.info("Country Updated");
+        } catch (CountryNotFoundException e) {
+
+            LOGGER.error(e.getMessage());
+
+        }
 
         LOGGER.info("End");
 
@@ -119,7 +126,7 @@ public class OrmLearnApplication {
 
         LOGGER.info("Start");
 
-        countryService.deleteCountry("ZZ");
+        countryService.deleteCountry("NP");
 
         LOGGER.info("Country Deleted");
 
