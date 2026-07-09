@@ -28,7 +28,18 @@ public class OrmLearnApplication {
 
         LOGGER.info("Inside Main");
 
-        testGetAllCountries();
+        // Uncomment ONE method at a time
+
+        //testGetCountry();
+
+        //testAddCountry();
+
+        //testUpdateCountry();
+
+        //testDeleteCountry();
+
+        testSearchCountry();
+
     }
 
     private static void testGetAllCountries() {
@@ -42,5 +53,74 @@ public class OrmLearnApplication {
         LOGGER.info("End");
 
     }
+    
+    private static void testGetCountry() {
 
+        LOGGER.info("Start");
+
+        Country country = countryService.getCountry("IN");
+
+        LOGGER.debug("Country={}", country);
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testAddCountry() {
+
+        LOGGER.info("Start");
+
+        Country country = new Country();
+
+        country.setCode("ZZ");
+
+        country.setName("ChatGPT Land");
+
+        countryService.addCountry(country);
+
+        LOGGER.info("Country Added");
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testUpdateCountry() {
+
+        LOGGER.info("Start");
+
+        Country country = new Country();
+
+        country.setCode("ZZ");
+
+        country.setName("OpenAI Country");
+
+        countryService.updateCountry(country);
+
+        LOGGER.info("Country Updated");
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testDeleteCountry() {
+
+        LOGGER.info("Start");
+
+        countryService.deleteCountry("ZZ");
+
+        LOGGER.info("Country Deleted");
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testSearchCountry() {
+
+        LOGGER.info("Start");
+
+        LOGGER.debug("Countries={}", countryService.searchCountry("land"));
+
+        LOGGER.info("End");
+
+    }
 }

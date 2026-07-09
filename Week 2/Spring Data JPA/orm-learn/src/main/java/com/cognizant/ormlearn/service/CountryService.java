@@ -14,12 +14,47 @@ import jakarta.transaction.Transactional;
 public class CountryService {
 
     @Autowired
-    private CountryRepository countryRepository;
+    private CountryRepository repository;
 
     @Transactional
     public List<Country> getAllCountries() {
 
-        return countryRepository.findAll();
+        return repository.findAll();
+
+    }
+
+    @Transactional
+    public Country getCountry(String code) {
+
+        return repository.findByCode(code).orElse(null);
+
+    }
+
+    @Transactional
+    public void addCountry(Country country) {
+
+        repository.save(country);
+
+    }
+
+    @Transactional
+    public void updateCountry(Country country) {
+
+        repository.save(country);
+
+    }
+
+    @Transactional
+    public void deleteCountry(String code) {
+
+        repository.deleteById(code);
+
+    }
+
+    @Transactional
+    public List<Country> searchCountry(String text) {
+
+        return repository.findByNameContainingIgnoreCase(text);
 
     }
 
