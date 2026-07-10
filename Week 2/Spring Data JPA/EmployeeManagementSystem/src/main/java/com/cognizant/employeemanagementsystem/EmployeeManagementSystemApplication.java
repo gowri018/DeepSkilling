@@ -1,13 +1,13 @@
-package com.cognizant.ormlearn;
+package com.cognizant.employeemanagementsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OrmLearnApplication {
+public class EmployeeManagementSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OrmLearnApplication.class, args);
+		SpringApplication.run(EmployeeManagementSystemApplication.class, args);
 	}
 
 }

@@ -16,5 +16,9 @@ public interface CountryRepository extends JpaRepository<Country, String> {
     //List<Country> findByNameContainingIgnoreCase(String text);
     
     List<Country> findByNameContainingOrderByNameAsc(String text);
+    
+    List<Country> findByNameStartingWith(String alphabet);
+    
+    
 
 }

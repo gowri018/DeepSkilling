@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.cognizant.ormlearn.model.Country;
 import com.cognizant.ormlearn.service.CountryService;
+import com.cognizant.ormlearn.repository.StockRepository;
 
 @SpringBootApplication
 public class OrmLearnApplication {
@@ -20,6 +21,8 @@ public class OrmLearnApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrmLearnApplication.class);
 
     private static CountryService countryService;
+    
+    private static StockRepository stockRepository;
 
     public static void main(String[] args) {
 
@@ -175,6 +178,25 @@ public class OrmLearnApplication {
                 countryService.getCountriesStartingWith("Z");
 
         LOGGER.debug("Countries={}", countries);
+
+        LOGGER.info("End");
+
+    }
+    
+    private static void testFacebookStocks() {
+
+        LOGGER.info("Start");
+
+        List<Stock> stocks=
+                stockRepository.findByCodeAndDateBetween(
+
+                        "FB",
+
+                        LocalDate.of(2019,9,1),
+
+                        LocalDate.of(2019,9,30));
+
+        LOGGER.debug("Stocks={}",stocks);
 
         LOGGER.info("End");
 
