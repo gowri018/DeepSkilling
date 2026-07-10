@@ -1,6 +1,15 @@
 package com.cognizant.employeemanagementsystem.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.EntityListeners;
 
 @NamedQueries({
 
@@ -21,6 +30,9 @@ query="SELECT e FROM Employee e"
 )
 
 })
+
+@EntityListeners(AuditingEntityListener.class)
+
 @Entity
 @Table(name="employee")
 public class Employee {
@@ -71,5 +83,17 @@ public class Employee {
     public void setDepartment(Department department) {
         this.department=department;
     }
+    
+    @CreatedBy
+    private String createdBy;
+
+    @CreatedDate
+    private LocalDateTime createdDate;
+
+    @LastModifiedBy
+    private String lastModifiedBy;
+
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
 
 }
