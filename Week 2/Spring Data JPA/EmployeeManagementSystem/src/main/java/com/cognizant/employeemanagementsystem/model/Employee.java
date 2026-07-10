@@ -2,6 +2,25 @@ package com.cognizant.employeemanagementsystem.model;
 
 import jakarta.persistence.*;
 
+@NamedQueries({
+
+@NamedQuery(
+
+name="Employee.findByEmployeeName",
+
+query="SELECT e FROM Employee e WHERE e.name=:name"
+
+),
+
+@NamedQuery(
+
+name="Employee.findAllEmployees",
+
+query="SELECT e FROM Employee e"
+
+)
+
+})
 @Entity
 @Table(name="employee")
 public class Employee {
