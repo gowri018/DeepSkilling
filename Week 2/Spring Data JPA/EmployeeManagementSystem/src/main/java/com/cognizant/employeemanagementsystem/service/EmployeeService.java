@@ -88,5 +88,12 @@ public class EmployeeService {
         return repository.findAll(pageable);
 
     }
+    
+    @Transactional
+    public void saveEmployees(List<Employee> employees){
+
+        repository.saveAll(employees);
+
+    }
 
 }

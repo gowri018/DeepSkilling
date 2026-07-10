@@ -29,5 +29,13 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer>{
     @Query(name="Employee.findByEmployeeName")
     List<Employee> getEmployeeByName(
             @Param("name") String name);
+    
+    @Query("""
+    		SELECT new com.cognizant.employeemanagementsystem.projection.EmployeeDTO(
+    		e.name,
+    		e.email)
+    		FROM Employee e
+    		""")
+    		List<EmployeeDTO> getEmployeeDTO();
 
 }

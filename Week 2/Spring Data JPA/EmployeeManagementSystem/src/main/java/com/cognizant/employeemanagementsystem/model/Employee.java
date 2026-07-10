@@ -8,7 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+import org.hibernate.annotations.DynamicUpdate;
 import jakarta.persistence.EntityListeners;
 
 @NamedQueries({
@@ -34,6 +34,7 @@ query="SELECT e FROM Employee e"
 @EntityListeners(AuditingEntityListener.class)
 
 @Entity
+@DynamicUpdate
 @Table(name="employee")
 public class Employee {
 
