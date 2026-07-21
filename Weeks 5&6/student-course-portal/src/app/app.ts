@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { CourseList } from './pages/course-list/course-list';
 import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
 
@@ -9,6 +9,7 @@ import { Home } from './pages/home/home';
   imports: [
     Header,
     Home,
+    CourseList,
     RouterOutlet
   ],
   templateUrl: './app.html',
