@@ -6,6 +6,7 @@ import {
   OnChanges,
   SimpleChanges
 } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -23,17 +24,35 @@ export class CourseCard implements OnChanges {
     name: string;
     code: string;
     credits: number;
+    gradeStatus: string;
   };
 
   @Output()
   enrollRequested = new EventEmitter<number>();
 
+  enrolled = false;
+
+  isExpanded = false;
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Course changed:', changes['course']);
+    console.log(changes);
   }
 
-  enroll() {
+  enroll(): void {
+    this.enrolled = true;
     this.enrollRequested.emit(this.course.id);
+  }
+
+  toggleDetails(): void {
+    this.isExpanded = !this.isExpanded;
+  }
+
+  get cardClasses() {
+    return {
+      'card--enrolled': this.enrolled,
+      'card--full': this.course.credits >= 4,
+      'expanded': this.isExpanded
+    };
   }
 
 }
