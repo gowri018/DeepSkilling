@@ -8,11 +8,13 @@ import {
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { Highlight } from '../../directives/highlight';
+import { CreditFormat } from '../../pipes/credit-format-pipe';
 
 @Component({
   selector: 'app-course-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Highlight, CreditFormat],
   templateUrl: './course-card.html',
   styleUrl: './course-card.css'
 })

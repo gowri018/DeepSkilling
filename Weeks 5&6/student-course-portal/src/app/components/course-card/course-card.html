@@ -5,13 +5,18 @@ course.gradeStatus==='passed'
 :course.gradeStatus==='failed'
 ?'6px solid red'
 :'6px solid gray'
-}">
+}"
+appHighlight
+>
 
     <h2>{{course.name}}</h2>
 
     <p><b>Code:</b> {{course.code}}</p>
 
-    <p><b>Credits:</b> {{course.credits}}</p>
+    <p>
+        <b>Credits:</b>
+        {{ course.credits | creditFormat }}
+    </p>
 
     <div [ngSwitch]="course.gradeStatus">
 
