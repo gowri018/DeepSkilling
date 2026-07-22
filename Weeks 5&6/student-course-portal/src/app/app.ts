@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CourseList } from './pages/course-list/course-list';
 import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
+import { EnrollmentForm } from './pages/enrollment-form/enrollment-form';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { Home } from './pages/home/home';
     Header,
     Home,
     CourseList,
-    RouterOutlet
+    RouterOutlet,
+    EnrollmentForm
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
