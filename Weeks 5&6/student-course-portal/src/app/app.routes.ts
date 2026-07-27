@@ -33,7 +33,8 @@ export const routes: Routes = [
 
   {
     path: 'reactive',
-    component: ReactiveEnrollment
+      component: ReactiveEnrollment,
+    canActivate: [authGuard]
     },
   {
   path: 'courses/:id',

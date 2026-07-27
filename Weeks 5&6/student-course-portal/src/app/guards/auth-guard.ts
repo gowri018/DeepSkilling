@@ -1,6 +1,6 @@
 import { CanActivateFn } from '@angular/router';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = () => {
 
   const isLoggedIn = true;
 
@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   }
 
-  alert('Access Denied');
+  alert("Access Denied!");
 
   return false;
 
