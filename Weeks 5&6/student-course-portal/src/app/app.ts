@@ -1,22 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CourseList } from './pages/course-list/course-list';
 import { Header } from './components/header/header';
-import { Home } from './pages/home/home';
-import { EnrollmentForm } from './pages/enrollment-form/enrollment-form';
-import { ReactiveEnrollment } from './pages/reactive-enrollment/reactive-enrollment';
-import { Posts } from './pages/posts/posts';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     Header,
-    Home,
-    CourseList,
-    RouterOutlet,
-    EnrollmentForm,
-    ReactiveEnrollment,
-    Posts
+    RouterOutlet
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
