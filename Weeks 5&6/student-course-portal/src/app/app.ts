@@ -5,6 +5,7 @@ import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
 import { EnrollmentForm } from './pages/enrollment-form/enrollment-form';
 import { ReactiveEnrollment } from './pages/reactive-enrollment/reactive-enrollment';
+import { Posts } from './pages/posts/posts';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { ReactiveEnrollment } from './pages/reactive-enrollment/reactive-enrollm
     CourseList,
     RouterOutlet,
     EnrollmentForm,
-    ReactiveEnrollment
+    ReactiveEnrollment,
+    Posts
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

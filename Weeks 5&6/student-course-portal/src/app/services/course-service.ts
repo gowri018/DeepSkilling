@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
   private courses = [
 
     {
@@ -58,5 +58,12 @@ export class CourseService {
   getCourseById(id: number) {
     return this.courses.find(course => course.id === id);
   }
+    
+  getPosts() {
+  return this.http.get<any[]>(
+    'https://jsonplaceholder.typicode.com/posts'
+  );
+
+}
 
 }
